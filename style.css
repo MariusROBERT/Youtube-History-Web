@@ -20,11 +20,10 @@ div.upload {
 
 div.stats {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #CCC;
-    /*padding: 50px;*/
     border-radius: 20px;
     margin: 50px;
 }
