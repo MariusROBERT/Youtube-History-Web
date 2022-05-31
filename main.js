@@ -1,4 +1,5 @@
 let fileContent;
+let nb = 20;
 
 function handleChange(files) {
     const file = files[0];
@@ -36,10 +37,10 @@ function upload() {
                 } else {
                     videos[title] = 1;
 
-                    if (title in videos_uniques) {
-                        videos_uniques[title]++;
+                    if (chaine in videos_uniques) {
+                        videos_uniques[chaine]++;
                     } else {
-                        videos_uniques[title] = 1;
+                        videos_uniques[chaine] = 1;
                     }
                 }
 
@@ -53,16 +54,32 @@ function upload() {
         console.log(videos_uniques);
         console.log(indispos);*/
 
+        const liste_chaines = Object.entries(chaines)
+            .map(e => [e[0], e[1]])
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, nb + 1);
+
+        const liste_videos = Object.entries(videos)
+            .map(e => [e[0], e[1]])
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, nb + 1);
+
+
+        const liste_videos_uniques = Object.entries(videos_uniques)
+            .map(e => [e[0], e[1]])
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, nb + 1);
+
         createTable(["Chaine", "Nombre de vidéos"/*, "Nombre de vidéos uniques"*/], // TODO : combine the two
-            Object.entries(chaines).map(e => [e[0], e[1]]),
+            liste_chaines,
             document.querySelector(".stats"));
 
         createTable(["Vidéo", "Nombre de visionnages"],
-            Object.entries(videos).map(e => [e[0], e[1]]),
+            liste_videos,
             document.querySelector(".stats"));
 
         createTable(["Chaine", "Nombre de visionnages uniques"],
-            Object.entries(videos_uniques).map(e => [e[0], e[1]]),
+            liste_videos_uniques,
             document.querySelector(".stats"));
     }
 }
@@ -96,4 +113,8 @@ function createTable(header, tableData, parent) { // TODO : use dict instead of 
 
     table.appendChild(tableBody);
     parent.appendChild(table);
+
+    // Sortable.create(table);
+
+    // new Tablesort(table);
 }
