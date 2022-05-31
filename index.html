@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Youtube History Analyser</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
+<!-- <h2>Youtube History Analyzer</h2> -->
+<div class="upload">
+    <input accept="application/json"
+           data-allow-reorder="true"
+           data-max-files="1"
+           id="upload-zone"
+           onchange="handleChange(this.files)"
+           type="file">
+    <button onclick="upload()">Upload</button>
+</div>
+
+<div class="stats">
+</div>
 
 </body>
 <script src="main.js"></script>
