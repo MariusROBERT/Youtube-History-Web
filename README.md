@@ -4,7 +4,7 @@
 Online version of my Python script to retrieve Youtube history.
 
 To use it, go on https://takeout.google.com/ and ask for your youtube history **in a JSON format**.  
-Once you have download it, go on https://mariusrobert.github.io/Youtube-History-Web/, upload the JSON file and click on the upload button.
+Once you have download it, go on https://mariusrobert.github.io/Youtube-History-Web/, upload `watch_history.json` and click on the upload button.
 
 <br>
 
